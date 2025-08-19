@@ -1,0 +1,32 @@
+.headerWrapper {
+  /* border: 1px solid red; */
+  margin-top: 16px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.searchWrapper {
+  /* border: 1px solid red; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+.searchWrapper input {
+  padding: 5px;
+}
+.searchWrapper button {
+  padding: 5px;
+  margin-left: 5px;
+  border: 1px solid black;
+  cursor: pointer;
+  background-color: black;
+  color: orange;
+  border-radius: 10px;
+}
+.searchWrapper button:hover {
+  background-color: orange;
+  border: 1px solid black;
+  color: black;
+}
