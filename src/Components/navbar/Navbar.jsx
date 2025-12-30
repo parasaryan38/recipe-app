@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Navbar.css";
 import { Link, NavLink } from "react-router-dom";
-
+import logo from "../../LOGO/NavLogob.png";
 const Navbar = () => {
   const [show, setShow] = useState(false);
   const user = localStorage.getItem("");
@@ -13,10 +13,9 @@ const Navbar = () => {
   };
   return (
     <nav className="navWrapper">
-      <div>
+      <div className="logoname">
         <Link to="/">
-          <i> {"<BB />"}</i>
-          <span>Recipe</span>
+          <img className="navLogo" src={logo} alt="logo" />
         </Link>
       </div>
       <div className={show ? "linkWrapper show" : "linkWrapper"}>

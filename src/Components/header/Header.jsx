@@ -9,6 +9,7 @@ const Header = ({ query, setQuery, getData, recipeExist, setRecipeExist }) => {
   return (
     <div className="headerWrapper">
       <h1>Recipe App</h1>
+      <p className="subtitle">Discover delicious recipes</p>
       <div className="searchWrapper">
         <form onSubmit={handleSubmit}>
           <input

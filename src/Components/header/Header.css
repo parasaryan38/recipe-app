@@ -6,6 +6,21 @@
   flex-direction: column;
   gap: 32px;
 }
+.headerWrapper h1 {
+  margin: 0;
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #000;
+  text-shadow: 0 0 5px #c0c0c0, 0 0 10px #c0c0c0, 0 0 15px #c0c0c0,
+    0 0 20px #c0c0c0;
+  animation: fadeIn 1s ease-in, shine 2s ease-in-out infinite alternate;
+}
+.subtitle {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #555;
+}
 .searchWrapper {
   /* border: 1px solid red; */
   display: flex;
@@ -29,4 +44,26 @@
   background-color: orange;
   border: 1px solid black;
   color: black;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shine {
+  from {
+    text-shadow: 0 0 5px #c0c0c0, 0 0 10px #c0c0c0, 0 0 15px #c0c0c0,
+      0 0 20px #c0c0c0;
+  }
+  to {
+    text-shadow: 0 0 10px #c0c0c0, 0 0 20px #c0c0c0, 0 0 30px #c0c0c0,
+      0 0 40px #c0c0c0;
+  }
 }

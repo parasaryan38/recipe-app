@@ -8,6 +8,32 @@ import "./About.css";
 const About = () => {
   return (
     <div className="about-container">
+      <div className="falling-food">
+        <span>🍕</span>
+        <span>🍔</span>
+        <span>🍟</span>
+        <span>🌭</span>
+        <span>🍗</span>
+        <span>🍖</span>
+        <span>🥗</span>
+        <span>🍝</span>
+        <span>🍛</span>
+        <span>🍜</span>
+        <span>🍣</span>
+        <span>🍱</span>
+        <span>🥪</span>
+        <span>🌮</span>
+        <span>🌯</span>
+        <span>🥙</span>
+        <span>🍲</span>
+        <span>🥘</span>
+        <span>🍰</span>
+        <span>🍪</span>
+        <span>🍩</span>
+        <span>🍦</span>
+        <span>🍫</span>
+        <span>🍬</span>
+      </div>
       <div className="about-header">
         <GiChefToque className="chef-icon" />
         <h1>About Our Recipe App</h1>

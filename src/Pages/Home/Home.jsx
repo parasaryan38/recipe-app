@@ -26,7 +26,33 @@ const Home = () => {
   };
 
   return (
-    <div>
+    <div className="home-container">
+      <div className="falling-food">
+        <span>🍕</span>
+        <span>🍔</span>
+        <span>🍟</span>
+        <span>🌭</span>
+        <span>🍗</span>
+        <span>🍖</span>
+        <span>🥗</span>
+        <span>🍝</span>
+        <span>🍛</span>
+        <span>🍜</span>
+        <span>🍣</span>
+        <span>🍱</span>
+        <span>🥪</span>
+        <span>🌮</span>
+        <span>🌯</span>
+        <span>🥙</span>
+        <span>🍲</span>
+        <span>🥘</span>
+        <span>🍰</span>
+        <span>🍪</span>
+        <span>🍩</span>
+        <span>🍦</span>
+        <span>🍫</span>
+        <span>🍬</span>
+      </div>
       <Header
         query={query}
         setQuery={setQuery}
