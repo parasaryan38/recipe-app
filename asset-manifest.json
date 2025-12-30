@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/static/css/main.d10f5f23.css",
-    "main.js": "/static/js/main.994a3153.js",
-    "static/media/burger.png": "/static/media/burger.10642008973f48beb518.png",
-    "static/media/ing.png": "/static/media/ing.abbb4da19e1fccd6ebaf.png",
-    "index.html": "/index.html",
-    "main.d10f5f23.css.map": "/static/css/main.d10f5f23.css.map",
-    "main.994a3153.js.map": "/static/js/main.994a3153.js.map"
+    "main.css": "/parasaryan38/recipe-app.git/static/css/main.d10f5f23.css",
+    "main.js": "/parasaryan38/recipe-app.git/static/js/main.b3c0450b.js",
+    "static/media/burger.png": "/parasaryan38/recipe-app.git/static/media/burger.10642008973f48beb518.png",
+    "static/media/ing.png": "/parasaryan38/recipe-app.git/static/media/ing.abbb4da19e1fccd6ebaf.png",
+    "index.html": "/parasaryan38/recipe-app.git/index.html",
+    "main.d10f5f23.css.map": "/parasaryan38/recipe-app.git/static/css/main.d10f5f23.css.map",
+    "main.b3c0450b.js.map": "/parasaryan38/recipe-app.git/static/js/main.b3c0450b.js.map"
   },
   "entrypoints": [
     "static/css/main.d10f5f23.css",
-    "static/js/main.994a3153.js"
+    "static/js/main.b3c0450b.js"
   ]
 }
