@@ -3,7 +3,7 @@ import { GiChefToque } from "react-icons/gi";
 import { FaUtensils } from "react-icons/fa";
 import { MdOutlineRestaurantMenu } from "react-icons/md";
 import { IoMdHeart } from "react-icons/io";
-// import "./About.css";
+import "./About.css";
 
 const About = () => {
   return (
