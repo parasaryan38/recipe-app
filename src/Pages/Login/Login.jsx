@@ -1,18 +1,33 @@
 import React, { useState } from "react";
 import "./Login.css";
 import { useNavigate } from "react-router-dom";
+
 const Login = () => {
-  const [user, setUser] = useState("");
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const navigate = useNavigate();
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    navigate(-1);
-    localStorage.setItem("user", JSON.stringify(user));
-    localStorage.setItem("email", JSON.stringify(email));
-    setUser("");
+
+    if (!name || !email) {
+      alert("Please fill all fields");
+      return;
+    }
+
+    const userData = {
+      name,
+      email,
+    };
+
+    localStorage.setItem("user", JSON.stringify(userData));
+
+    setName("");
     setEmail("");
+
+    navigate("/about", { replace: true });
   };
+
   return (
     <div className="loginWrapper">
       <div className="formWrapper">
@@ -22,10 +37,12 @@ const Login = () => {
             <input
               type="text"
               id="name"
-              value={user}
-              onChange={(e) => setUser(e.target.value)}
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              placeholder="Enter your name"
             />
           </div>
+
           <div className="inputWrapper">
             <label htmlFor="email">Email</label>
             <input
@@ -33,9 +50,11 @@ const Login = () => {
               id="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              placeholder="Enter your email"
             />
           </div>
-          <button type="submit"> Login </button>
+
+          <button type="submit">Login</button>
         </form>
       </div>
     </div>
