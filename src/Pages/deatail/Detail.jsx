@@ -18,6 +18,32 @@ const Detail = () => {
 
   return (
     <div className="deatailWrapper">
+      <div className="falling-food">
+        <span>🍕</span>
+        <span>🍔</span>
+        <span>🍟</span>
+        <span>🌭</span>
+        <span>🍗</span>
+        <span>🍖</span>
+        <span>🥗</span>
+        <span>🍝</span>
+        <span>🍛</span>
+        <span>🍜</span>
+        <span>🍣</span>
+        <span>🍱</span>
+        <span>🥪</span>
+        <span>🌮</span>
+        <span>🌯</span>
+        <span>🥙</span>
+        <span>🍲</span>
+        <span>🥘</span>
+        <span>🍰</span>
+        <span>🍪</span>
+        <span>🍩</span>
+        <span>🍦</span>
+        <span>🍫</span>
+        <span>🍬</span>
+      </div>
       <div className="imgWrapper">
         <h1>{strMeal}</h1>
         <img src={png} alt="food" />

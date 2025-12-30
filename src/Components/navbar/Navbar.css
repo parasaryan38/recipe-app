@@ -27,6 +27,21 @@
 .active {
   color: red;
 }
+
+.logout-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: orange;
+  text-decoration: none;
+  font-size: inherit;
+  font-family: inherit;
+}
+
+.logout-btn:hover {
+  color: red;
+}
+
 .burgerMenu {
   display: none;
   font-size: 24px;

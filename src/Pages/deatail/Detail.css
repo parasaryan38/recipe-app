@@ -66,3 +66,153 @@
   justify-content: space-between;
   gap: 50px;
 }
+
+.falling-food {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.falling-food span {
+  position: absolute;
+  font-size: 2rem;
+  animation: fall linear infinite;
+  animation-duration: 10s;
+  animation-delay: calc(var(--delay) * -1s);
+  left: calc(var(--left) * 1%);
+}
+
+.falling-food span:nth-child(1) {
+  --delay: 2.3;
+  --left: 10;
+}
+.falling-food span:nth-child(2) {
+  --delay: 7.8;
+  --left: 20;
+}
+.falling-food span:nth-child(3) {
+  --delay: 1.5;
+  --left: 30;
+}
+.falling-food span:nth-child(4) {
+  --delay: 9.2;
+  --left: 40;
+}
+.falling-food span:nth-child(5) {
+  --delay: 4.7;
+  --left: 50;
+}
+.falling-food span:nth-child(6) {
+  --delay: 0.8;
+  --left: 60;
+}
+.falling-food span:nth-child(7) {
+  --delay: 6.1;
+  --left: 70;
+}
+.falling-food span:nth-child(8) {
+  --delay: 3.4;
+  --left: 80;
+}
+.falling-food span:nth-child(9) {
+  --delay: 8.9;
+  --left: 90;
+}
+.falling-food span:nth-child(10) {
+  --delay: 5.6;
+  --left: 15;
+}
+.falling-food span:nth-child(11) {
+  --delay: 1.2;
+  --left: 25;
+}
+.falling-food span:nth-child(12) {
+  --delay: 7.3;
+  --left: 35;
+}
+.falling-food span:nth-child(13) {
+  --delay: 4.1;
+  --left: 45;
+}
+.falling-food span:nth-child(14) {
+  --delay: 9.5;
+  --left: 55;
+}
+.falling-food span:nth-child(15) {
+  --delay: 2.7;
+  --left: 65;
+}
+.falling-food span:nth-child(16) {
+  --delay: 6.4;
+  --left: 75;
+}
+.falling-food span:nth-child(17) {
+  --delay: 0.3;
+  --left: 85;
+}
+.falling-food span:nth-child(18) {
+  --delay: 8.6;
+  --left: 5;
+}
+.falling-food span:nth-child(19) {
+  --delay: 3.9;
+  --left: 95;
+}
+.falling-food span:nth-child(20) {
+  --delay: 5.2;
+  --left: 12;
+}
+.falling-food span:nth-child(21) {
+  --delay: 1.8;
+  --left: 22;
+}
+.falling-food span:nth-child(22) {
+  --delay: 7.5;
+  --left: 32;
+}
+.falling-food span:nth-child(23) {
+  --delay: 4.3;
+  --left: 42;
+}
+.falling-food span:nth-child(24) {
+  --delay: 9.1;
+  --left: 52;
+}
+.falling-food span:nth-child(25) {
+  --delay: 2.9;
+  --left: 62;
+}
+.falling-food span:nth-child(26) {
+  --delay: 6.7;
+  --left: 72;
+}
+
+@keyframes fall {
+  0% {
+    top: -10%;
+    transform: rotate(0deg) scale(1);
+  }
+  10% {
+    transform: rotate(10deg) scale(1.1);
+  }
+  20% {
+    transform: rotate(-10deg) scale(0.9);
+  }
+  30% {
+    transform: rotate(5deg) scale(1.05);
+  }
+  40% {
+    transform: rotate(-5deg) scale(0.95);
+  }
+  50% {
+    transform: rotate(0deg) scale(1);
+  }
+  100% {
+    top: 110%;
+    transform: rotate(360deg) scale(0.5);
+  }
+}

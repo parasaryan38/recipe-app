@@ -1,16 +1,22 @@
 import React, { useState } from "react";
 import "./Navbar.css";
-import { Link, NavLink } from "react-router-dom";
-import logo from "../../LOGO/NavLogob.png";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import logo from "../../LOGO/burger.png";
+
 const Navbar = () => {
   const [show, setShow] = useState(false);
-  const user = localStorage.getItem("");
+  const user = JSON.parse(localStorage.getItem("user"));
+  const navigate = useNavigate();
+
   const toggleMenu = () => {
     setShow(!show);
   };
-  const setUser = () => {
+
+  const handleLogout = () => {
     localStorage.removeItem("user");
+    navigate("/");
   };
+
   return (
     <nav className="navWrapper">
       <div className="logoname">
@@ -20,9 +26,13 @@ const Navbar = () => {
       </div>
       <div className={show ? "linkWrapper show" : "linkWrapper"}>
         <NavLink to="/">Home</NavLink>
-        <NavLink onClick={setUser} to="/login">
-          {user ? "Logout" : "Login"}
-        </NavLink>
+        {user ? (
+          <button onClick={handleLogout} className="logout-btn">
+            Logout
+          </button>
+        ) : (
+          <NavLink to="/login">Login</NavLink>
+        )}
         <NavLink to="/about">About</NavLink>
       </div>
       <div className="burgerMenu" onClick={toggleMenu}>

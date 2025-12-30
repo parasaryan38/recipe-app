@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import "./Login.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const Login = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -25,7 +26,8 @@ const Login = () => {
     setName("");
     setEmail("");
 
-    navigate("/about", { replace: true });
+    const from = location.state?.from?.pathname || "/about";
+    navigate(from, { state: location.state?.state, replace: true });
   };
 
   return (
