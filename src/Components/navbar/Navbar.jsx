@@ -25,15 +25,27 @@ const Navbar = () => {
         </Link>
       </div>
       <div className={show ? "linkWrapper show" : "linkWrapper"}>
-        <NavLink to="/">Home</NavLink>
+        <NavLink to="/" onClick={toggleMenu}>
+          Home
+        </NavLink>
         {user ? (
-          <button onClick={handleLogout} className="logout-btn">
+          <button
+            onClick={() => {
+              handleLogout();
+              toggleMenu();
+            }}
+            className="logout-btn"
+          >
             Logout
           </button>
         ) : (
-          <NavLink to="/login">Login</NavLink>
+          <NavLink to="/login" onClick={toggleMenu}>
+            Login
+          </NavLink>
         )}
-        <NavLink to="/about">About</NavLink>
+        <NavLink to="/about" onClick={toggleMenu}>
+          About
+        </NavLink>
       </div>
       <div className="burgerMenu" onClick={toggleMenu}>
         &#9776;

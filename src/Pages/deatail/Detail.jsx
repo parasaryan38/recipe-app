@@ -67,7 +67,11 @@ const Detail = () => {
 
         <div className="instruction">
           <h1>INSTRUCTIONS</h1>
-          <p>{strInstructions}</p>
+          <p
+            dangerouslySetInnerHTML={{
+              __html: strInstructions.replace(/\r?\n/g, "<br />"),
+            }}
+          ></p>
         </div>
         <div>
           <p>

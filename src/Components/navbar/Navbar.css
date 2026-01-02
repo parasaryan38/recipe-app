@@ -65,6 +65,7 @@
     display: flex;
     justify-content: start;
     height: 50vh;
+    z-index: 10;
   }
   .linkWrapper a {
     margin: 0;
