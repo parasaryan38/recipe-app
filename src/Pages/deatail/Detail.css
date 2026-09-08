@@ -1,218 +1,40 @@
-.imgWrapper img {
-  width: 125px;
-}
-.detailWrapper {
-  display: flex;
-  flex-direction: column;
-}
-.bottomWrapper {
-  /* border: 1px solid red; */
-  display: flex;
-  justify-content: center;
+.detailWrapper { min-height: calc(100vh - 76px); padding-bottom: 80px; background: var(--cream); }
+
+.recipeHero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.8fr);
   align-items: center;
-  flex-wrap: wrap;
-  flex-direction: column;
-  gap: 32px;
-  margin-bottom: 20px;
-  padding-bottom: 20px;
+  gap: clamp(32px, 8vw, 110px);
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: clamp(44px, 8vw, 92px) 24px;
 }
 
-.ingWrapper {
-  padding: 10px;
-  background-color: black;
-  color: orange;
-  width: 250px;
-  border-radius: 10px;
-  border: 2px solid black;
-}
-.ingWrapper h1 {
-  text-decoration: underline;
-}
-/* .ingWrapper :hover {
-  background-color: orange;
-  color: black;
-} */
+.backLink { display: inline-block; margin-bottom: 30px; color: var(--orange-dark); font-size: 0.9rem; font-weight: 700; }
+.backLink:hover { text-decoration: underline; }
+.recipeHero h1, .missingRecipe h1 { margin: 0; font-family: "Playfair Display", Georgia, serif; font-size: clamp(2.5rem, 6vw, 4.7rem); letter-spacing: -0.055em; line-height: 1; }
+.recipeHeroCopy > p:last-child { max-width: 510px; margin: 20px 0 0; color: var(--muted); font-size: 1.08rem; line-height: 1.6; }
+.recipeHero > img { width: 100%; aspect-ratio: 1 / 0.86; border-radius: 28px; object-fit: cover; box-shadow: var(--shadow); }
 
-.instruction {
-  padding: 10px;
-  background-color: black;
-  color: orange;
-  width: 50%;
-  border-radius: 10px;
-  border: 2px solid black;
-}
-.instruction h1 {
-  text-decoration: underline;
-}
-/* .instruction:hover {
-  padding: 10px;
-  background-color: orange;
-  color: black;
-  width: 50%;
-  border-radius: 10px;
-} */
+.recipeBody { display: grid; grid-template-columns: minmax(260px, 0.7fr) minmax(0, 1.3fr); gap: 28px; max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+.ingredientsCard, .instructionsCard { border: 1px solid var(--line); border-radius: 22px; background: var(--surface); box-shadow: 0 10px 25px rgba(58, 44, 28, 0.05); }
+.ingredientsCard { padding: 28px; background: var(--sage); }
+.instructionsCard { padding: clamp(28px, 5vw, 48px); }
+.ingredientsCard h2, .instructionsCard h2 { margin: 0 0 20px; font-family: "Playfair Display", Georgia, serif; font-size: 1.75rem; letter-spacing: -0.035em; }
+.ingredientsCard ul { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; }
+.ingredientsCard li { display: flex; gap: 10px; line-height: 1.35; }
+.ingredientsCard li::before { flex: 0 0 auto; width: 7px; height: 7px; margin-top: 0.42em; border-radius: 50%; background: var(--orange); content: ""; }
+.instructionsCard p { margin: 0; color: #405048; line-height: 1.8; white-space: pre-line; }
+.videoLink { display: inline-flex; margin-top: 28px; padding: 11px 15px; border-radius: 10px; color: #fff; background: var(--orange); font-weight: 700; }
+.videoLink:hover { background: var(--orange-dark); }
+.videoLink span { margin-left: 8px; }
 
-.mealImg img {
-  width: 300px;
-}
-.mealImg {
-  padding: 20px;
-  border: 5px solid black;
-  border-radius: 20px;
-}
-.main {
-  flex-direction: row;
-  display: flex;
-  justify-content: space-between;
-  gap: 50px;
-}
+.missingRecipe { width: min(620px, calc(100% - 48px)); margin: 100px auto; padding: 45px; border: 1px solid var(--line); border-radius: 24px; text-align: center; background: var(--surface); box-shadow: var(--shadow); }
+.missingRecipe a { display: inline-block; margin-top: 24px; padding: 11px 16px; border-radius: 10px; color: #fff; background: var(--orange); font-weight: 700; }
 
-.falling-food {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: -1;
-}
-
-.falling-food span {
-  position: absolute;
-  font-size: 2rem;
-  animation: fall linear infinite;
-  animation-duration: 10s;
-  animation-delay: calc(var(--delay) * -1s);
-  left: calc(var(--left) * 1%);
-}
-
-.falling-food span:nth-child(1) {
-  --delay: 2.3;
-  --left: 10;
-}
-.falling-food span:nth-child(2) {
-  --delay: 7.8;
-  --left: 20;
-}
-.falling-food span:nth-child(3) {
-  --delay: 1.5;
-  --left: 30;
-}
-.falling-food span:nth-child(4) {
-  --delay: 9.2;
-  --left: 40;
-}
-.falling-food span:nth-child(5) {
-  --delay: 4.7;
-  --left: 50;
-}
-.falling-food span:nth-child(6) {
-  --delay: 0.8;
-  --left: 60;
-}
-.falling-food span:nth-child(7) {
-  --delay: 6.1;
-  --left: 70;
-}
-.falling-food span:nth-child(8) {
-  --delay: 3.4;
-  --left: 80;
-}
-.falling-food span:nth-child(9) {
-  --delay: 8.9;
-  --left: 90;
-}
-.falling-food span:nth-child(10) {
-  --delay: 5.6;
-  --left: 15;
-}
-.falling-food span:nth-child(11) {
-  --delay: 1.2;
-  --left: 25;
-}
-.falling-food span:nth-child(12) {
-  --delay: 7.3;
-  --left: 35;
-}
-.falling-food span:nth-child(13) {
-  --delay: 4.1;
-  --left: 45;
-}
-.falling-food span:nth-child(14) {
-  --delay: 9.5;
-  --left: 55;
-}
-.falling-food span:nth-child(15) {
-  --delay: 2.7;
-  --left: 65;
-}
-.falling-food span:nth-child(16) {
-  --delay: 6.4;
-  --left: 75;
-}
-.falling-food span:nth-child(17) {
-  --delay: 0.3;
-  --left: 85;
-}
-.falling-food span:nth-child(18) {
-  --delay: 8.6;
-  --left: 5;
-}
-.falling-food span:nth-child(19) {
-  --delay: 3.9;
-  --left: 95;
-}
-.falling-food span:nth-child(20) {
-  --delay: 5.2;
-  --left: 12;
-}
-.falling-food span:nth-child(21) {
-  --delay: 1.8;
-  --left: 22;
-}
-.falling-food span:nth-child(22) {
-  --delay: 7.5;
-  --left: 32;
-}
-.falling-food span:nth-child(23) {
-  --delay: 4.3;
-  --left: 42;
-}
-.falling-food span:nth-child(24) {
-  --delay: 9.1;
-  --left: 52;
-}
-.falling-food span:nth-child(25) {
-  --delay: 2.9;
-  --left: 62;
-}
-.falling-food span:nth-child(26) {
-  --delay: 6.7;
-  --left: 72;
-}
-
-@keyframes fall {
-  0% {
-    top: -10%;
-    transform: rotate(0deg) scale(1);
-  }
-  10% {
-    transform: rotate(10deg) scale(1.1);
-  }
-  20% {
-    transform: rotate(-10deg) scale(0.9);
-  }
-  30% {
-    transform: rotate(5deg) scale(1.05);
-  }
-  40% {
-    transform: rotate(-5deg) scale(0.95);
-  }
-  50% {
-    transform: rotate(0deg) scale(1);
-  }
-  100% {
-    top: 110%;
-    transform: rotate(360deg) scale(0.5);
-  }
+@media (max-width: 700px) {
+  .detailWrapper { min-height: calc(100vh - 66px); }
+  .recipeHero, .recipeBody { grid-template-columns: 1fr; }
+  .recipeHero { padding-top: 42px; }
+  .recipeHero > img { max-height: 400px; }
 }

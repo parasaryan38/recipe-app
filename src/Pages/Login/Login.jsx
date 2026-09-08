@@ -31,8 +31,11 @@ const Login = () => {
   };
 
   return (
-    <div className="loginWrapper">
+    <main className="loginWrapper">
       <div className="formWrapper">
+        <p className="sectionLabel">Welcome back</p>
+        <h1>Let’s start cooking.</h1>
+        <p className="loginIntro">Sign in to explore recipes and unlock the full experience.</p>
         <form onSubmit={handleSubmit}>
           <div className="inputWrapper">
             <label htmlFor="name">Name</label>
@@ -41,7 +44,9 @@ const Login = () => {
               id="name"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              placeholder="Enter your name"
+              placeholder="Your name"
+              autoComplete="name"
+              required
             />
           </div>
 
@@ -52,14 +57,16 @@ const Login = () => {
               id="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="Enter your email"
+              placeholder="you@example.com"
+              autoComplete="email"
+              required
             />
           </div>
 
-          <button type="submit">Login</button>
+          <button type="submit">Continue</button>
         </form>
       </div>
-    </div>
+    </main>
   );
 };
 

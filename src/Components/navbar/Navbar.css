@@ -1,81 +1,79 @@
 .navWrapper {
+  position: sticky;
+  top: 0;
+  z-index: 20;
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  width: 100%;
-  align-items: center;
-  padding: 16px;
-  border-bottom: 1px solid grey;
-  background-color: black;
-}
-.navWrapper * {
-  color: orange;
+  min-height: 76px;
+  padding: 10px clamp(20px, 5vw, 72px);
+  border-bottom: 1px solid rgba(233, 226, 215, 0.8);
+  background: rgba(255, 250, 243, 0.9);
+  backdrop-filter: blur(14px);
 }
 
-.linkWrapper {
-  display: flex;
-  justify-content: space-around;
-  width: 50%;
-}
-.logoname {
-  font-weight: bold;
-  margin-left: 8px;
+.logoname a {
   display: flex;
   align-items: center;
-  gap: 8px;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  overflow: hidden;
+  border-radius: 14px;
+  background: var(--orange);
+  box-shadow: 0 7px 16px rgba(231, 111, 60, 0.25);
 }
 
-.active {
-  color: red;
-}
+.navLogo { width: 42px; height: 42px; object-fit: contain; }
 
+.linkWrapper { display: flex; align-items: center; gap: 8px; }
+
+.linkWrapper a,
 .logout-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: orange;
-  text-decoration: none;
-  font-size: inherit;
-  font-family: inherit;
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  padding: 0 14px;
+  border: 0;
+  border-radius: 10px;
+  color: var(--muted);
+  background: transparent;
+  font-weight: 600;
+  transition: color 160ms ease, background-color 160ms ease;
 }
 
-.logout-btn:hover {
-  color: red;
-}
+.linkWrapper a:hover,
+.logout-btn:hover,
+.linkWrapper a.active { color: var(--orange-dark); background: #fff0e8; }
 
 .burgerMenu {
   display: none;
-  font-size: 24px;
-  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  color: var(--ink);
+  background: var(--surface);
+  font-size: 1.35rem;
 }
-.navLogo {
-  width: 60px;
-  height: 50px;
-}
-@media screen and (max-width: 768px) {
+
+@media (max-width: 640px) {
+  .navWrapper { min-height: 66px; padding: 8px 20px; }
   .linkWrapper {
-    display: none;
-    flex-direction: column;
     position: absolute;
-    top: 60px;
-    right: 0;
-    width: 50%;
-    background-color: orange;
+    top: calc(100% + 8px);
+    right: 16px;
+    display: none;
+    width: min(220px, calc(100vw - 32px));
+    padding: 8px;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: var(--surface);
+    box-shadow: var(--shadow);
   }
-  .linkWrapper.show {
-    display: flex;
-    justify-content: start;
-    height: 50vh;
-    z-index: 10;
-  }
-  .linkWrapper a {
-    margin: 0;
-    text-align: center;
-    padding: 10px;
-    border-bottom: 1px solid skyblue;
-    border-radius: 5px;
-    color: black;
-  }
-  .burgerMenu {
-    display: block;
-  }
+  .linkWrapper.show { display: grid; }
+  .linkWrapper a, .logout-btn { justify-content: flex-start; width: 100%; }
+  .burgerMenu { display: inline-flex; }
 }

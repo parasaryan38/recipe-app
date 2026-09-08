@@ -1,30 +1,25 @@
-import React, { useState, useEffect } from "react";
-import "./Home.css";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
-import Header from "D:/MERN/recipe-app/src/Components/header/Header.jsx";
-import Card from "D:/MERN/recipe-app/src/Components/card/Card";
-import home from "../../LOGO/burger.png";
 import { useLocation } from "react-router-dom";
+import "./Home.css";
+import Header from "../../Components/header/Header";
+import Card from "../../Components/card/Card";
+import home from "../../LOGO/burger.png";
 
 const Home = () => {
   const [query, setQuery] = useState("");
   const [recipes, setRecipe] = useState([]);
-  const [selectedMeal, setSelecctedMeal] = useState([]);
   const [recipeExist, setRecipeExist] = useState(false);
   const APP_ID = process.env.REACT_APP_API_ID;
-
   const location = useLocation();
-
-  // const mealTypes = ["Breakfast", "Lunch", "Dinner", "Snack"];
-  const url = `https://www.themealdb.com/api/json/v1/${APP_ID}/search.php?s=${query}`;
 
   const getData = async () => {
     try {
+      const url = `https://www.themealdb.com/api/json/v1/${APP_ID}/search.php?s=${query.trim()}`;
       const { data } = await axios(url);
       setRecipe(data.meals || []);
-      console.log(data.meals);
     } catch (error) {
-      console.log(error);
+      console.error("Could not fetch recipes", error);
       setRecipe([]);
     }
   };
@@ -38,52 +33,34 @@ const Home = () => {
   }, [location.pathname]);
 
   return (
-    <div className="home-container">
-      <div className="falling-food">
-        <span>🍕</span>
-        <span>🍔</span>
-        <span>🍟</span>
-        <span>🌭</span>
-        <span>🍗</span>
-        <span>🍖</span>
-        <span>🥗</span>
-        <span>🍝</span>
-        <span>🍛</span>
-        <span>🍜</span>
-        <span>🍣</span>
-        <span>🍱</span>
-        <span>🥪</span>
-        <span>🌮</span>
-        <span>🌯</span>
-        <span>🥙</span>
-        <span>🍲</span>
-        <span>🥘</span>
-        <span>🍰</span>
-        <span>🍪</span>
-        <span>🍩</span>
-        <span>🍦</span>
-        <span>🍫</span>
-        <span>🍬</span>
-      </div>
-      <Header
-        query={query}
-        setQuery={setQuery}
-        selectedMeal={selectedMeal}
-        setSelecctedMeal={setSelecctedMeal}
-        // mealTypes={mealTypes}
-        getData={getData}
-        recipeExist={recipeExist}
-        setRecipeExist={setRecipeExist}
-      />
-      {!recipeExist && <img className="homeIMG" src={home} alt="home" />}
-      {recipeExist && recipes.length === 0 && (
-        <>
-          <img className="homeIMG" src={home} alt="home" />
-          <h1>Sorry!! try another food.</h1>
-        </>
+    <main className="home-container">
+      <Header query={query} setQuery={setQuery} getData={getData} setRecipeExist={setRecipeExist} />
+
+      {!recipeExist && (
+        <section className="welcomePanel" aria-label="Start searching for a recipe">
+          <div className="welcomeCopy">
+            <p className="sectionLabel">What’s cooking?</p>
+            <h2>Fresh ideas are only one search away.</h2>
+            <p>From comforting classics to new dinner inspiration, start with an ingredient or meal you love.</p>
+          </div>
+          <div className="welcomeIllustration" aria-hidden="true">
+            <img src={home} alt="" />
+            <span>✦</span><span>✦</span>
+          </div>
+        </section>
       )}
+
+      {recipeExist && recipes.length === 0 && (
+        <section className="emptyState">
+          <img src={home} alt="" />
+          <p className="sectionLabel">No matches yet</p>
+          <h2>We couldn’t find “{query}”.</h2>
+          <p>Try a broader search, such as chicken, pasta, or curry.</p>
+        </section>
+      )}
+
       {recipes.length > 0 && <Card recipes={recipes} />}
-    </div>
+    </main>
   );
 };
 

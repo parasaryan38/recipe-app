@@ -1,39 +1,45 @@
-.thumbWrapper {
-  width: 100%;
-  border-radius: 10px;
-}
-.cardWrapper {
-  color: orange;
-  border: 1px solid red;
-  width: 300px;
-  padding: 16px;
-  border-radius: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  background-color: black;
-  gap: 10px;
-}
-.cardWrapper button {
-  border: 1px solid orange;
-  border-radius: 5px;
-  padding: 5px;
-  background-color: orange;
-  color: black;
-  cursor: pointer;
-}
-.cardWrapper button:hover {
-  background-color: black;
-  color: orange;
-  border: 1px solid orange;
-}
+.resultsSection { width: min(1180px, calc(100% - 48px)); margin: 10px auto 80px; }
+.resultsHeading { margin-bottom: 24px; }
+.resultsHeading h2 { margin: 0; font-family: "Playfair Display", Georgia, serif; font-size: clamp(1.8rem, 4vw, 2.6rem); letter-spacing: -0.04em; }
+
 .mainCard {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  align-items: center;
-  gap: 32px;
-  padding-top: 5px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 22px;
+}
+
+.cardWrapper {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: var(--surface);
+  box-shadow: 0 8px 22px rgba(58, 44, 28, 0.06);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.cardWrapper:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
+.imageFrame { overflow: hidden; aspect-ratio: 1.25 / 1; background: var(--sage); }
+.thumbWrapper { width: 100%; height: 100%; object-fit: cover; transition: transform 300ms ease; }
+.cardWrapper:hover .thumbWrapper { transform: scale(1.045); }
+
+.cardContent { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 18px; }
+.cardContent h3 { margin: 0; font-size: 1rem; line-height: 1.35; }
+.cardContent button {
+  flex: 0 0 auto;
+  padding: 9px 11px;
+  border: 0;
+  border-radius: 10px;
+  color: var(--orange-dark);
+  background: #fff0e8;
+  font-size: 0.84rem;
+  font-weight: 700;
+  white-space: nowrap;
+  transition: color 160ms ease, background-color 160ms ease;
+}
+.cardContent button:hover { color: #fff; background: var(--orange); }
+.cardContent button span { margin-left: 4px; font-size: 1.05rem; }
+
+@media (max-width: 640px) {
+  .resultsSection { width: min(100% - 32px, 520px); margin-bottom: 48px; }
+  .mainCard { grid-template-columns: 1fr; }
 }

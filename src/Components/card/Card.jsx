@@ -4,20 +4,30 @@ import "./Card.css";
 const Card = ({ recipes }) => {
   const navigate = useNavigate();
   return (
-    <div className="mainCard">
+    <section className="resultsSection" aria-live="polite">
+      <div className="resultsHeading">
+        <p className="sectionLabel">Recipe results</p>
+        <h2>Choose something delicious</h2>
+      </div>
+      <div className="mainCard">
       {recipes.map((recipe, index) => {
         const { strMealThumb, strMeal } = recipe;
         return (
-          <div className="cardWrapper" key={index}>
-            <h1>{strMeal}</h1>
-            <img className="thumbWrapper" src={strMealThumb} alt="Thumbnail" />
+          <article className="cardWrapper" key={recipe.idMeal || index}>
+            <div className="imageFrame">
+              <img className="thumbWrapper" src={strMealThumb} alt={strMeal} />
+            </div>
+            <div className="cardContent">
+              <h3>{strMeal}</h3>
             <button onClick={() => navigate("/detail", { state: recipe })}>
-              More Detail
+              View recipe <span aria-hidden="true">→</span>
             </button>
-          </div>
+            </div>
+          </article>
         );
       })}
-    </div>
+      </div>
+    </section>
   );
 };
 

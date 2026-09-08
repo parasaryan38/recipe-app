@@ -5,69 +5,31 @@ import { MdOutlineRestaurantMenu } from "react-icons/md";
 import { IoMdHeart } from "react-icons/io";
 import "./About.css";
 
-const About = () => {
-  return (
-    <div className="about-container">
-      <div className="falling-food">
-        <span>🍕</span>
-        <span>🍔</span>
-        <span>🍟</span>
-        <span>🌭</span>
-        <span>🍗</span>
-        <span>🍖</span>
-        <span>🥗</span>
-        <span>🍝</span>
-        <span>🍛</span>
-        <span>🍜</span>
-        <span>🍣</span>
-        <span>🍱</span>
-        <span>🥪</span>
-        <span>🌮</span>
-        <span>🌯</span>
-        <span>🥙</span>
-        <span>🍲</span>
-        <span>🥘</span>
-        <span>🍰</span>
-        <span>🍪</span>
-        <span>🍩</span>
-        <span>🍦</span>
-        <span>🍫</span>
-        <span>🍬</span>
-      </div>
-      <div className="about-header">
-        <GiChefToque className="chef-icon" />
-        <h1>About Our Recipe App</h1>
-      </div>
-      <div className="about-content">
-        <p className="about-description">
-          Welcome to our delicious Recipe App! Discover a world of flavors with
-          our curated collection of recipes from around the globe. Whether
-          you're a seasoned chef or a kitchen novice, our app is designed to
-          inspire your culinary adventures.
-        </p>
-        <div className="features">
-          <div className="feature">
-            <FaUtensils className="feature-icon" />
-            <h3>Easy Recipes</h3>
-            <p>Step-by-step instructions for every dish.</p>
-          </div>
-          <div className="feature">
-            <MdOutlineRestaurantMenu className="feature-icon" />
-            <h3>Diverse Cuisine</h3>
-            <p>Explore recipes from various cultures and cuisines.</p>
-          </div>
-          <div className="feature">
-            <IoMdHeart className="feature-icon" />
-            <h3>Save Favorites</h3>
-            <p>Bookmark your favorite recipes for quick access.</p>
-          </div>
-        </div>
-        <p className="about-footer">
-          Join our community of food lovers and start cooking today!
-        </p>
-      </div>
-    </div>
-  );
-};
+const features = [
+  { icon: FaUtensils, title: "Simple searches", text: "Start with an ingredient, a meal, or a craving." },
+  { icon: MdOutlineRestaurantMenu, title: "Global flavors", text: "Discover dishes and cuisines from around the world." },
+  { icon: IoMdHeart, title: "Cook with confidence", text: "Clear ingredients and instructions help every step." },
+];
+
+const About = () => (
+  <main className="about-container">
+    <header className="about-header">
+      <div className="aboutIcon"><GiChefToque /></div>
+      <p className="sectionLabel">A little about us</p>
+      <h1>Good food brings people together.</h1>
+      <p>Recipe App is a simple place to find fresh meal inspiration whenever you need it.</p>
+    </header>
+    <section className="features" aria-label="What Recipe App offers">
+      {features.map(({ icon: Icon, title, text }) => (
+        <article className="feature" key={title}>
+          <Icon className="feature-icon" aria-hidden="true" />
+          <h2>{title}</h2>
+          <p>{text}</p>
+        </article>
+      ))}
+    </section>
+    <p className="about-footer">Pick a recipe, make it your own, and enjoy the process.</p>
+  </main>
+);
 
 export default About;

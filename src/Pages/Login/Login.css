@@ -1,44 +1,13 @@
-.loginWrapper {
-  height: 100vh;
-  background-image: url("https://picsum.photos/1600/900");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.formWrapper {
-  border: 1px solid red;
-  width: 250px;
-  height: 250px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: rgb(209, 175, 175, 0.5);
-}
-.formWrapper form {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  align-items: center;
-}
-.formWrapper button {
-  width: 40%;
-  border-style: true;
-  padding: 0px;
-  border-radius: 10px;
-  justify-content: center;
-  height: 20px;
-}
-.inputWrapper {
-  display: flex;
-  justify-content: center;
-  flex-direction: row;
-  gap: 5px;
-}
-.formWrapper button:hover {
-  background-color: grey;
-  border-color: greenyellow;
-}
+.loginWrapper { display: grid; place-items: center; min-height: calc(100vh - 76px); padding: 40px 20px; background: radial-gradient(circle at 13% 17%, rgba(223, 233, 223, 0.9) 0, rgba(223, 233, 223, 0) 22rem), radial-gradient(circle at 88% 88%, rgba(255, 220, 191, 0.8) 0, rgba(255, 220, 191, 0) 25rem), var(--cream); }
+.formWrapper { width: min(100%, 440px); padding: clamp(30px, 6vw, 48px); border: 1px solid var(--line); border-radius: 24px; background: rgba(255, 255, 255, 0.9); box-shadow: var(--shadow); }
+.formWrapper h1 { margin: 0; font-family: "Playfair Display", Georgia, serif; font-size: clamp(2rem, 6vw, 3rem); letter-spacing: -0.05em; line-height: 1.05; }
+.loginIntro { margin: 14px 0 30px; color: var(--muted); line-height: 1.6; }
+.formWrapper form { display: grid; gap: 18px; }
+.inputWrapper { display: grid; gap: 8px; }
+.inputWrapper label { color: #405048; font-size: 0.9rem; font-weight: 700; }
+.inputWrapper input { width: 100%; padding: 13px 14px; border: 1px solid var(--line); border-radius: 10px; outline: 0; color: var(--ink); background: #fffdf9; }
+.inputWrapper input:focus { border-color: var(--orange); box-shadow: 0 0 0 3px rgba(231, 111, 60, 0.15); }
+.formWrapper button { width: 100%; margin-top: 6px; padding: 13px 18px; border: 0; border-radius: 11px; color: #fff; background: var(--orange); font-weight: 700; transition: background-color 160ms ease, transform 160ms ease; }
+.formWrapper button:hover { background: var(--orange-dark); transform: translateY(-1px); }
+
+@media (max-width: 640px) { .loginWrapper { min-height: calc(100vh - 66px); } }

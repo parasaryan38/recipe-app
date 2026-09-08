@@ -24,7 +24,7 @@ const Navbar = () => {
           <img className="navLogo" src={logo} alt="logo" />
         </Link>
       </div>
-      <div className={show ? "linkWrapper show" : "linkWrapper"}>
+      <div id="primary-navigation" className={show ? "linkWrapper show" : "linkWrapper"}>
         <NavLink to="/" onClick={toggleMenu}>
           Home
         </NavLink>
@@ -47,9 +47,16 @@ const Navbar = () => {
           About
         </NavLink>
       </div>
-      <div className="burgerMenu" onClick={toggleMenu}>
-        &#9776;
-      </div>
+      <button
+        className="burgerMenu"
+        type="button"
+        aria-label="Toggle navigation"
+        aria-expanded={show}
+        aria-controls="primary-navigation"
+        onClick={toggleMenu}
+      >
+        {show ? "×" : "☰"}
+      </button>
     </nav>
   );
 };
